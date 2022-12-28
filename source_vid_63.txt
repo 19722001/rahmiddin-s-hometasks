@@ -1,0 +1,4 @@
+CustomerName,SaleAmt
+Aamir,1000
+M Raza,500
+Robert,100
