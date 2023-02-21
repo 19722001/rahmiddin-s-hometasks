@@ -1,0 +1,1653 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/17/2023 12:22:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KVPUOPH"
+  DTS:CreatorName="DESKTOP-KVPUOPH\User"
+  DTS:DTSID="{07E5C5A3-D99C-42E2-812B-A5F19EA29D1D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{A5317687-2287-4AFD-BAE1-A1433CAFFFA9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KVPUOPH.TechBrothersIT]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9AF69AFA-9792-4B88-9D2A-3D5348267BBE}"
+      DTS:ObjectName="DESKTOP-KVPUOPH.TechBrothersIT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KVPUOPH;Initial Catalog=TechBrothersIT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{9AF69AFA-9792-4B88-9D2A-3D5348267BBE}DESKTOP-KVPUOPH.TechBrothersIT;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KVPUOPH.TechBrothersIT 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AC3521DB-FCC4-4410-AC81-2E3D9771D913}"
+      DTS:ObjectName="DESKTOP-KVPUOPH.TechBrothersIT 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KVPUOPH;Initial Catalog=TechBrothersIT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{AC3521DB-FCC4-4410-AC81-2E3D9771D913}DESKTOP-KVPUOPH.TechBrothersIT 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4EFD8B58-29AD-4AE9-BE10-66B58C50DFFC}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\User\Desktop\review of ssis\X Factor contestants.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{18D85AAF-141C-4098-A6D8-5A2464F9A2F6}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\User\Desktop\review of ssis\X Factor contestants.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AF083A0A-22E4-4893-BE91-7DB1388514BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get rid of old finalists data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DC8E09F6-0CA6-4CBD-9123-77BDC09944B4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get rid of old finalists data"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9AF69AFA-9792-4B88-9D2A-3D5348267BBE}"
+          SQLTask:SqlStatementSource="Truncate table tblFinalist" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import Excel data,clearning up as we do so"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AEFB0987-67B9-46F8-A2AD-ACA0AF5A5797}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Excel data,clearning up as we do so">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import Excel data,clearning up as we do so\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Inputs[Data Conversion Input].Columns[Id]"
+                      cachedDataType="r8"
+                      cachedName="Id"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Inputs[Data Conversion Input].Columns[Finished]"
+                      cachedDataType="r8"
+                      cachedName="Finished"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Finished]" />
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Inputs[Data Conversion Input].Columns[Series]"
+                      cachedDataType="r8"
+                      cachedName="Series"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Series]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Id]"
+                      name="Copy of Id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Finished]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Finished]"
+                      name="Copy of Finished"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Finished]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Series]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Series]"
+                      name="Copy of Series"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Series]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Excel data,clearning up as we do so\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column.Inputs[Derived Column Input].Columns[CategoryId]"
+                      cachedDataType="i4"
+                      cachedName="CategoryId"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Match Output].Columns[CategoryId]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output].Columns[Notes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output].Columns[Notes]"
+                      name="Notes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"Imported without problem"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"Imported without problem"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output].Columns[CatId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output].Columns[CatId]"
+                      name="CatId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Match Output].Columns[CategoryId]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">CategoryId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Excel data,clearning up as we do so\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Inputs[Derived Column Input].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Category"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output].Columns[Notes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output].Columns[Notes]"
+                      name="Notes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)(#{Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]} + " not found")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)(Category + " not found")</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output].Columns[CatId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output].Columns[CatId]"
+                      name="CatId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">5</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">5</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup category for each contestant"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[tblCategory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[tblCategory]) [refTable]
+where [refTable].[CategoryName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CategoryId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CategoryName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KVPUOPH.TechBrothersIT 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KVPUOPH.TechBrothersIT 1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Inputs[Lookup Input].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Category"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CategoryName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Match Output].Columns[CategoryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Match Output].Columns[CategoryId]"
+                      name="CategoryId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CategoryId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tblFinalist]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KVPUOPH.TechBrothersIT]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KVPUOPH.TechBrothersIT]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Finished]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Finished"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FinishingPosition]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Finished]" />
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Series]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Series"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SeriesNumber]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Series]" />
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CatId]"
+                      cachedDataType="i4"
+                      cachedName="CatId"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryId]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[CatId]" />
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Notes]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Notes"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImportNote]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Notes]" />
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FinalistName]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FinalistId]"
+                      dataType="i4"
+                      name="FinalistId" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FinalistName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FinalistName" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FinishingPosition]"
+                      dataType="i4"
+                      name="FinishingPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SeriesNumber]"
+                      dataType="i4"
+                      name="SeriesNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryId]"
+                      dataType="i4"
+                      name="CategoryId" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ImportNote]"
+                      dataType="wstr"
+                      length="50"
+                      name="ImportNote" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Excel data,clearning up as we do so\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[Id]"
+                      cachedDataType="r8"
+                      cachedName="Id"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[Series]"
+                      cachedDataType="r8"
+                      cachedName="Series"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Series]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Series]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Category"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[Mentor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Mentor"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Mentor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Mentor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[Finished]"
+                      cachedDataType="r8"
+                      cachedName="Finished"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Finished]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Finished]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[Notes]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Notes"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output].Columns[Notes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Notes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1].Columns[CatId]"
+                      cachedDataType="i4"
+                      cachedName="CatId"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output].Columns[CatId]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[CatId]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[Id]"
+                      cachedDataType="r8"
+                      cachedName="Id"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Name"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[Series]"
+                      cachedDataType="r8"
+                      cachedName="Series"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Series]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Series]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Category"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Category]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[Mentor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Mentor"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Mentor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Mentor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[Finished]"
+                      cachedDataType="r8"
+                      cachedName="Finished"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Finished]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Finished]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[Notes]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Notes"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output].Columns[Notes]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Notes]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2].Columns[CatId]"
+                      cachedDataType="i4"
+                      cachedName="CatId"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output].Columns[CatId]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[CatId]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Id]"
+                      dataType="r8"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Series]"
+                      dataType="r8"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Series]"
+                      name="Series" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Mentor]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Mentor]"
+                      name="Mentor" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Finished]"
+                      dataType="r8"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Finished]"
+                      name="Finished" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Notes]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[Notes]"
+                      name="Notes" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[CatId]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1].Columns[CatId]"
+                      name="CatId" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import Excel data,clearning up as we do so\X Factor finalists"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="X Factor finalists"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Finalists$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Id]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Series]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Series]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Series]"
+                      name="Series"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Mentor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Mentor]"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Mentor]"
+                      name="Mentor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Finished]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Finished]"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].Columns[Finished]"
+                      name="Finished"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Id]"
+                      dataType="r8"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Series]"
+                      dataType="r8"
+                      name="Series" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Mentor]"
+                      dataType="wstr"
+                      length="255"
+                      name="Mentor" />
+                    <externalMetadataColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output].ExternalColumns[Finished]"
+                      dataType="r8"
+                      name="Finished" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Id]"
+                      dataType="r8"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Series]"
+                      dataType="r8"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Series]"
+                      name="Series" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Category]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Mentor]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Mentor]"
+                      name="Mentor" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Finished]"
+                      dataType="r8"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[Finished]"
+                      name="Finished" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import Excel data,clearning up as we do so.Paths[Data Conversion Output]"
+              endId="Package\Import Excel data,clearning up as we do so\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Import Excel data,clearning up as we do so\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import Excel data,clearning up as we do so.Paths[Derived Column Output]"
+              endId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import Excel data,clearning up as we do so.Paths[Derived Column Output1]"
+              endId="Package\Import Excel data,clearning up as we do so\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Import Excel data,clearning up as we do so\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import Excel data,clearning up as we do so.Paths[Excel Source Output]"
+              endId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Inputs[Lookup Input]"
+              name="Excel Source Output"
+              startId="Package\Import Excel data,clearning up as we do so\X Factor finalists.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Import Excel data,clearning up as we do so.Paths[Lookup Match Output]"
+              endId="Package\Import Excel data,clearning up as we do so\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Import Excel data,clearning up as we do so.Paths[Lookup No Match Output]"
+              endId="Package\Import Excel data,clearning up as we do so\Derived Column 1.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Import Excel data,clearning up as we do so.Paths[Union All Output 1]"
+              endId="Package\Import Excel data,clearning up as we do so\Data Conversion.Inputs[Data Conversion Input]"
+              name="Union All Output 1"
+              startId="Package\Import Excel data,clearning up as we do so\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6D223274-7509-4CB3-932F-6A746F280A9A}"
+      DTS:From="Package\Get rid of old finalists data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import Excel data,clearning up as we do so" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189.6,70.4"
+          Id="Package\Get rid of old finalists data"
+          TopLeft="58.333331015375,43.3333336777157" />
+        <NodeLayout
+          Size="276.8,41.6"
+          Id="Package\Import Excel data,clearning up as we do so"
+          TopLeft="57.9999979138376,181.433334731526" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="153.133331015375,113.733333677716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.2666668984626,67.7000010538104"
+              Start="0,0"
+              End="43.2666668984626,60.2000010538104">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8500005269052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8500005269052"
+                    Point2="0,33.8500005269052"
+                    Point3="4,33.8500005269052" />
+                  <mssgle:LineSegment
+                    End="39.2666668984626,33.8500005269052" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.2666668984626,33.8500005269052"
+                    Point2="43.2666668984626,33.8500005269052"
+                    Point3="43.2666668984626,37.8500005269052" />
+                  <mssgle:LineSegment
+                    End="43.2666668984626,60.2000010538104" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import Excel data,clearning up as we do so">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Import Excel data,clearning up as we do so\Derived Column"
+          TopLeft="9.16666630241605,244.400001942317" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Import Excel data,clearning up as we do so\X Factor finalists"
+          TopLeft="176.000000198682,2.99999969005584" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Import Excel data,clearning up as we do so\Derived Column 1"
+          TopLeft="384.999984701475,213.200001694361" />
+        <NodeLayout
+          Size="246.4,41.6"
+          Id="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant"
+          TopLeft="129.166661534044,159.466667933994" />
+        <EdgeLayout
+          Id="Package\Import Excel data,clearning up as we do so.Paths[Lookup No Match Output]"
+          TopLeft="375.566661534044,180.266667933994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.2333231674303,32.9333337603672"
+              Start="0,0"
+              End="90.2333231674303,25.4333337603672">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="86.2333231674303,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.2333231674303,0"
+                    Point2="90.2333231674303,0"
+                    Point3="90.2333231674303,4" />
+                  <mssgle:LineSegment
+                    End="90.2333231674303,25.4333337603672" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="34.4269364486803,-17.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Excel data,clearning up as we do so.Paths[Lookup Match Output]"
+          TopLeft="252.366661534044,201.066667933994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166.799995231628,43.3333340083227"
+              Start="0,0"
+              End="-166.799995231628,35.8333340083227">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6666670041614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6666670041614"
+                    Point2="0,21.6666670041614"
+                    Point3="-4,21.6666670041614" />
+                  <mssgle:LineSegment
+                    End="-162.799995231628,21.6666670041614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-162.799995231628,21.6666670041614"
+                    Point2="-166.799995231628,21.6666670041614"
+                    Point3="-166.799995231628,25.6666670041614" />
+                  <mssgle:LineSegment
+                    End="-166.799995231628,35.8333340083227" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-131.591384334564,26.6666670041614,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Excel data,clearning up as we do so.Paths[Excel Source Output]"
+          TopLeft="252.983330866363,44.5999996900558">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,114.866668243938"
+              Start="0,0"
+              End="0,107.366668243938">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,107.366668243938" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Import Excel data,clearning up as we do so\OLE DB Destination"
+          TopLeft="191.666659050518,448.466669855648" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Import Excel data,clearning up as we do so\Union All"
+          TopLeft="211.333325154252,281.13122820209" />
+        <EdgeLayout
+          Id="Package\Import Excel data,clearning up as we do so.Paths[Derived Column Output]"
+          TopLeft="465.799984701475,254.800001694361">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-194.466659547223,26.3312265077292"
+              Start="0,0"
+              End="-194.466659547223,18.8312265077292">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.16561325386458" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.16561325386458"
+                    Point2="0,13.1656132538646"
+                    Point3="-4,13.1656132538646" />
+                  <mssgle:LineSegment
+                    End="-190.466659547223,13.1656132538646" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-190.466659547223,13.1656132538646"
+                    Point2="-194.466659547223,13.1656132538646"
+                    Point3="-194.466659547223,17.1656132538646" />
+                  <mssgle:LineSegment
+                    End="-194.466659547223,18.8312265077292" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Excel data,clearning up as we do so.Paths[Derived Column Output1]"
+          TopLeft="161.966666302416,265.200001942317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.3666588518358,36.7312262597737"
+              Start="0,0"
+              End="41.8666588518358,36.7312262597737">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.6833294259179,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.6833294259179,0"
+                    Point2="24.6833294259179,0"
+                    Point3="24.6833294259179,4" />
+                  <mssgle:LineSegment
+                    End="24.6833294259179,32.7312262597737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.6833294259179,32.7312262597737"
+                    Point2="24.6833294259179,36.7312262597737"
+                    Point3="28.6833294259179,36.7312262597737" />
+                  <mssgle:LineSegment
+                    End="41.8666588518358,36.7312262597737" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Import Excel data,clearning up as we do so\Data Conversion"
+          TopLeft="195.833325551616,363.2666688225" />
+        <EdgeLayout
+          Id="Package\Import Excel data,clearning up as we do so.Paths[Union All Output 1]"
+          TopLeft="272.583325352934,322.73122820209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.5354406204102"
+              Start="0,0"
+              End="0,33.0354406204102">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0354406204102" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import Excel data,clearning up as we do so.Paths[Data Conversion Output]"
+          TopLeft="275.549992301067,404.866668822501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.6000010331471"
+              Start="0,0"
+              End="0,36.1000010331471">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.1000010331471" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Excel data,clearning up as we do so\X Factor finalists">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Excel data,clearning up as we do so\Lookup category for each contestant">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[tblCategory]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Excel data,clearning up as we do so\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
