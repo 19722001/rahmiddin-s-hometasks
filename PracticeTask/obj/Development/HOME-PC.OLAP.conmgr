@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="HOME-PC.OLAP"
+  DTS:DTSID="{0116BC05-DC25-4E8F-A762-A97A16B190E9}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=HOME-PC;Initial Catalog=OLAP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package3-{0116BC05-DC25-4E8F-A762-A97A16B190E9}HOME-PC.OLAP;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
