@@ -1,0 +1,1332 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/20/2023 8:00:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOME-PC"
+  DTS:CreatorName="HOME-PC\admin"
+  DTS:DTSID="{2AE0A9DD-E72D-46A4-ABC6-D64D4FDB3658}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{CABECD64-990B-4E13-A053-77EE63054AEF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CALL_CENTER.ELBEK]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{73064696-5EC7-472D-B1E2-83DDE6FE8919}"
+      DTS:ObjectName="CALL_CENTER.ELBEK">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=ELBEK;Dsn=CALL_CENTER;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA95yEfOeaUEWtt425pu43dwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACtvCX1egHMZH7nWkz1CpdNg6JOPx+wqiAjgTPR9EQclQAAAAAOgAAAAAIAACAAAADOTCXziB70qqrLlV7OYCOU5Enl+NGEJLLH/L/vys+PMCAAAACDbRTDfcuBCLxEv6eJgxBRpnZityXVjzpWaT/Dnk3BP0AAAAAOFIh6BoaIzuDtsOOjlEl5IUzHr4sXsPMYDk0sxmk6kCJP1slqZaR8jyFAUw8bQdSqkDsaQl5FEoFWpdnntnsZ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HOME-PC.OLAP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DC9CE768-1646-4954-96B7-94E0D7394609}"
+      DTS:ObjectName="HOME-PC.OLAP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=HOME-PC;Initial Catalog=OLAP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{DC9CE768-1646-4954-96B7-94E0D7394609}HOME-PC.OLAP;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A36490F4-F79C-49EF-9BC7-D02FA7B3E993}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\ODBC Source"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="ODBC Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="ODBC Source"
+              name="ODBC Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName">"TPCDS_SF100TCL"."CALL_CENTER"</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\ODBC Source.Connections[ODBCConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CALL_CENTER.ELBEK]"
+                  connectionManagerRefId="Package.ConnectionManagers[CALL_CENTER.ELBEK]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CALL_CENTER_SK]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CALL_CENTER_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CALL_CENTER_SK]"
+                      name="CC_CALL_CENTER_SK"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CALL_CENTER_ID]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CALL_CENTER_ID]"
+                      length="16"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CALL_CENTER_ID]"
+                      name="CC_CALL_CENTER_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_REC_START_DATE]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_REC_START_DATE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_REC_START_DATE]"
+                      name="CC_REC_START_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_REC_END_DATE]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_REC_END_DATE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_REC_END_DATE]"
+                      name="CC_REC_END_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CLOSED_DATE_SK]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CLOSED_DATE_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CLOSED_DATE_SK]"
+                      name="CC_CLOSED_DATE_SK"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_OPEN_DATE_SK]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_OPEN_DATE_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_OPEN_DATE_SK]"
+                      name="CC_OPEN_DATE_SK"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_NAME]"
+                      name="CC_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CLASS]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CLASS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CLASS]"
+                      name="CC_CLASS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_EMPLOYEES]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_EMPLOYEES]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_EMPLOYEES]"
+                      name="CC_EMPLOYEES"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_SQ_FT]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_SQ_FT]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_SQ_FT]"
+                      name="CC_SQ_FT"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_HOURS]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_HOURS]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_HOURS]"
+                      name="CC_HOURS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MANAGER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MANAGER]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MANAGER]"
+                      name="CC_MANAGER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_ID]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_ID]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_ID]"
+                      name="CC_MKT_ID"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_CLASS]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_CLASS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_CLASS]"
+                      name="CC_MKT_CLASS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_DESC]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_DESC]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_DESC]"
+                      name="CC_MKT_DESC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MARKET_MANAGER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MARKET_MANAGER]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MARKET_MANAGER]"
+                      name="CC_MARKET_MANAGER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_DIVISION]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_DIVISION]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_DIVISION]"
+                      name="CC_DIVISION"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_DIVISION_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_DIVISION_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_DIVISION_NAME]"
+                      name="CC_DIVISION_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COMPANY]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COMPANY]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COMPANY]"
+                      name="CC_COMPANY"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COMPANY_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COMPANY_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COMPANY_NAME]"
+                      name="CC_COMPANY_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_NUMBER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_NUMBER]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_NUMBER]"
+                      name="CC_STREET_NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_NAME]"
+                      length="60"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_NAME]"
+                      name="CC_STREET_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_TYPE]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_TYPE]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_TYPE]"
+                      name="CC_STREET_TYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_SUITE_NUMBER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_SUITE_NUMBER]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_SUITE_NUMBER]"
+                      name="CC_SUITE_NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CITY]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CITY]"
+                      length="60"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CITY]"
+                      name="CC_CITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COUNTY]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COUNTY]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COUNTY]"
+                      name="CC_COUNTY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STATE]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STATE]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STATE]"
+                      name="CC_STATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_ZIP]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_ZIP]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_ZIP]"
+                      name="CC_ZIP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COUNTRY]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COUNTRY]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COUNTRY]"
+                      name="CC_COUNTRY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_GMT_OFFSET]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_GMT_OFFSET]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_GMT_OFFSET]"
+                      name="CC_GMT_OFFSET"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_TAX_PERCENTAGE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_TAX_PERCENTAGE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_TAX_PERCENTAGE]"
+                      name="CC_TAX_PERCENTAGE"
+                      precision="5"
+                      scale="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CALL_CENTER_SK]"
+                      dataType="numeric"
+                      name="CC_CALL_CENTER_SK"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CALL_CENTER_ID]"
+                      dataType="wstr"
+                      length="16"
+                      name="CC_CALL_CENTER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_REC_START_DATE]"
+                      dataType="dbDate"
+                      name="CC_REC_START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_REC_END_DATE]"
+                      dataType="dbDate"
+                      name="CC_REC_END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CLOSED_DATE_SK]"
+                      dataType="numeric"
+                      name="CC_CLOSED_DATE_SK"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_OPEN_DATE_SK]"
+                      dataType="numeric"
+                      name="CC_OPEN_DATE_SK"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_NAME]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CLASS]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_CLASS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_EMPLOYEES]"
+                      dataType="numeric"
+                      name="CC_EMPLOYEES"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_SQ_FT]"
+                      dataType="numeric"
+                      name="CC_SQ_FT"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_HOURS]"
+                      dataType="wstr"
+                      length="20"
+                      name="CC_HOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MANAGER]"
+                      dataType="wstr"
+                      length="40"
+                      name="CC_MANAGER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_ID]"
+                      dataType="numeric"
+                      name="CC_MKT_ID"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_CLASS]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_MKT_CLASS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_DESC]"
+                      dataType="wstr"
+                      length="100"
+                      name="CC_MKT_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MARKET_MANAGER]"
+                      dataType="wstr"
+                      length="40"
+                      name="CC_MARKET_MANAGER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_DIVISION]"
+                      dataType="numeric"
+                      name="CC_DIVISION"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_DIVISION_NAME]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_DIVISION_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COMPANY]"
+                      dataType="numeric"
+                      name="CC_COMPANY"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COMPANY_NAME]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_COMPANY_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_NUMBER]"
+                      dataType="wstr"
+                      length="10"
+                      name="CC_STREET_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_NAME]"
+                      dataType="wstr"
+                      length="60"
+                      name="CC_STREET_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_TYPE]"
+                      dataType="wstr"
+                      length="15"
+                      name="CC_STREET_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_SUITE_NUMBER]"
+                      dataType="wstr"
+                      length="10"
+                      name="CC_SUITE_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CITY]"
+                      dataType="wstr"
+                      length="60"
+                      name="CC_CITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COUNTY]"
+                      dataType="wstr"
+                      length="30"
+                      name="CC_COUNTY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STATE]"
+                      dataType="wstr"
+                      length="2"
+                      name="CC_STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_ZIP]"
+                      dataType="wstr"
+                      length="10"
+                      name="CC_ZIP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COUNTRY]"
+                      dataType="wstr"
+                      length="20"
+                      name="CC_COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_GMT_OFFSET]"
+                      dataType="numeric"
+                      name="CC_GMT_OFFSET"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_TAX_PERCENTAGE]"
+                      dataType="numeric"
+                      name="CC_TAX_PERCENTAGE"
+                      precision="5"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CALL_CENTER_SK]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CALL_CENTER_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CALL_CENTER_SK]"
+                      name="CC_CALL_CENTER_SK"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CALL_CENTER_ID]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CALL_CENTER_ID]"
+                      length="16"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CALL_CENTER_ID]"
+                      name="CC_CALL_CENTER_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_REC_START_DATE]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_REC_START_DATE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_REC_START_DATE]"
+                      name="CC_REC_START_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_REC_END_DATE]"
+                      dataType="dbDate"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_REC_END_DATE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_REC_END_DATE]"
+                      name="CC_REC_END_DATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CLOSED_DATE_SK]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CLOSED_DATE_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CLOSED_DATE_SK]"
+                      name="CC_CLOSED_DATE_SK"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_OPEN_DATE_SK]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_OPEN_DATE_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_OPEN_DATE_SK]"
+                      name="CC_OPEN_DATE_SK"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_NAME]"
+                      name="CC_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CLASS]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CLASS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CLASS]"
+                      name="CC_CLASS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_EMPLOYEES]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_EMPLOYEES]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_EMPLOYEES]"
+                      name="CC_EMPLOYEES"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_SQ_FT]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_SQ_FT]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_SQ_FT]"
+                      name="CC_SQ_FT"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_HOURS]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_HOURS]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_HOURS]"
+                      name="CC_HOURS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MANAGER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MANAGER]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MANAGER]"
+                      name="CC_MANAGER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MKT_ID]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_ID]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MKT_ID]"
+                      name="CC_MKT_ID"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MKT_CLASS]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_CLASS]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MKT_CLASS]"
+                      name="CC_MKT_CLASS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MKT_DESC]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MKT_DESC]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MKT_DESC]"
+                      name="CC_MKT_DESC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MARKET_MANAGER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_MARKET_MANAGER]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_MARKET_MANAGER]"
+                      name="CC_MARKET_MANAGER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_DIVISION]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_DIVISION]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_DIVISION]"
+                      name="CC_DIVISION"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_DIVISION_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_DIVISION_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_DIVISION_NAME]"
+                      name="CC_DIVISION_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COMPANY]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COMPANY]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COMPANY]"
+                      name="CC_COMPANY"
+                      precision="28" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COMPANY_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COMPANY_NAME]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COMPANY_NAME]"
+                      name="CC_COMPANY_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STREET_NUMBER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_NUMBER]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STREET_NUMBER]"
+                      name="CC_STREET_NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STREET_NAME]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_NAME]"
+                      length="60"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STREET_NAME]"
+                      name="CC_STREET_NAME" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STREET_TYPE]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STREET_TYPE]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STREET_TYPE]"
+                      name="CC_STREET_TYPE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_SUITE_NUMBER]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_SUITE_NUMBER]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_SUITE_NUMBER]"
+                      name="CC_SUITE_NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CITY]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_CITY]"
+                      length="60"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_CITY]"
+                      name="CC_CITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COUNTY]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COUNTY]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COUNTY]"
+                      name="CC_COUNTY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STATE]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_STATE]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_STATE]"
+                      name="CC_STATE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_ZIP]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_ZIP]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_ZIP]"
+                      name="CC_ZIP" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COUNTRY]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_COUNTRY]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_COUNTRY]"
+                      name="CC_COUNTRY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_GMT_OFFSET]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_GMT_OFFSET]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_GMT_OFFSET]"
+                      name="CC_GMT_OFFSET"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_TAX_PERCENTAGE]"
+                      dataType="numeric"
+                      externalMetadataColumnId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].ExternalColumns[CC_TAX_PERCENTAGE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[CC_TAX_PERCENTAGE]"
+                      name="CC_TAX_PERCENTAGE"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[snowflakedatamove]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[HOME-PC.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[HOME-PC.OLAP]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_CALL_CENTER_SK]"
+                      cachedDataType="numeric"
+                      cachedName="CC_CALL_CENTER_SK"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CALL_CENTER_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CALL_CENTER_SK]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_CALL_CENTER_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="CC_CALL_CENTER_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CALL_CENTER_ID]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CALL_CENTER_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_REC_START_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="CC_REC_START_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_REC_START_DATE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_REC_START_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_REC_END_DATE]"
+                      cachedDataType="dbDate"
+                      cachedName="CC_REC_END_DATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_REC_END_DATE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_REC_END_DATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_CLOSED_DATE_SK]"
+                      cachedDataType="numeric"
+                      cachedName="CC_CLOSED_DATE_SK"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CLOSED_DATE_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CLOSED_DATE_SK]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_OPEN_DATE_SK]"
+                      cachedDataType="numeric"
+                      cachedName="CC_OPEN_DATE_SK"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_OPEN_DATE_SK]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_OPEN_DATE_SK]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CC_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_NAME]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_NAME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_CLASS]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CC_CLASS"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CLASS]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CLASS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_EMPLOYEES]"
+                      cachedDataType="numeric"
+                      cachedName="CC_EMPLOYEES"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_EMPLOYEES]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_EMPLOYEES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_SQ_FT]"
+                      cachedDataType="numeric"
+                      cachedName="CC_SQ_FT"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_SQ_FT]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_SQ_FT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_HOURS]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CC_HOURS"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_HOURS]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_HOURS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_MANAGER]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CC_MANAGER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MANAGER]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MANAGER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_MKT_ID]"
+                      cachedDataType="numeric"
+                      cachedName="CC_MKT_ID"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MKT_ID]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_MKT_CLASS]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CC_MKT_CLASS"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MKT_CLASS]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_CLASS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_MKT_DESC]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="CC_MKT_DESC"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MKT_DESC]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MKT_DESC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_MARKET_MANAGER]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="CC_MARKET_MANAGER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MARKET_MANAGER]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_MARKET_MANAGER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_DIVISION]"
+                      cachedDataType="numeric"
+                      cachedName="CC_DIVISION"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_DIVISION]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_DIVISION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_DIVISION_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CC_DIVISION_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_DIVISION_NAME]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_DIVISION_NAME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_COMPANY]"
+                      cachedDataType="numeric"
+                      cachedName="CC_COMPANY"
+                      cachedPrecision="28"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COMPANY]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COMPANY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_COMPANY_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CC_COMPANY_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COMPANY_NAME]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COMPANY_NAME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_STREET_NUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CC_STREET_NUMBER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STREET_NUMBER]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_STREET_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="CC_STREET_NAME"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STREET_NAME]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_NAME]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_STREET_TYPE]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="CC_STREET_TYPE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STREET_TYPE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STREET_TYPE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_SUITE_NUMBER]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CC_SUITE_NUMBER"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_SUITE_NUMBER]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_SUITE_NUMBER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_CITY]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="CC_CITY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CITY]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_CITY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_COUNTY]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="CC_COUNTY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COUNTY]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COUNTY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_STATE]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="CC_STATE"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STATE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_STATE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_ZIP]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CC_ZIP"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_ZIP]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_ZIP]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="CC_COUNTRY"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COUNTRY]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_COUNTRY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_GMT_OFFSET]"
+                      cachedDataType="numeric"
+                      cachedName="CC_GMT_OFFSET"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_GMT_OFFSET]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_GMT_OFFSET]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CC_TAX_PERCENTAGE]"
+                      cachedDataType="numeric"
+                      cachedName="CC_TAX_PERCENTAGE"
+                      cachedPrecision="5"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_TAX_PERCENTAGE]"
+                      lineageId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output].Columns[CC_TAX_PERCENTAGE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CALL_CENTER_SK]"
+                      dataType="numeric"
+                      name="CC_CALL_CENTER_SK"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CALL_CENTER_ID]"
+                      dataType="wstr"
+                      length="16"
+                      name="CC_CALL_CENTER_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_REC_START_DATE]"
+                      dataType="dbDate"
+                      name="CC_REC_START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_REC_END_DATE]"
+                      dataType="dbDate"
+                      name="CC_REC_END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CLOSED_DATE_SK]"
+                      dataType="numeric"
+                      name="CC_CLOSED_DATE_SK"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_OPEN_DATE_SK]"
+                      dataType="numeric"
+                      name="CC_OPEN_DATE_SK"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_NAME]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CLASS]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_CLASS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_EMPLOYEES]"
+                      dataType="numeric"
+                      name="CC_EMPLOYEES"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_SQ_FT]"
+                      dataType="numeric"
+                      name="CC_SQ_FT"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_HOURS]"
+                      dataType="wstr"
+                      length="20"
+                      name="CC_HOURS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MANAGER]"
+                      dataType="wstr"
+                      length="40"
+                      name="CC_MANAGER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MKT_ID]"
+                      dataType="numeric"
+                      name="CC_MKT_ID"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MKT_CLASS]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_MKT_CLASS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MKT_DESC]"
+                      dataType="wstr"
+                      length="100"
+                      name="CC_MKT_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_MARKET_MANAGER]"
+                      dataType="wstr"
+                      length="40"
+                      name="CC_MARKET_MANAGER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_DIVISION]"
+                      dataType="numeric"
+                      name="CC_DIVISION"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_DIVISION_NAME]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_DIVISION_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COMPANY]"
+                      dataType="numeric"
+                      name="CC_COMPANY"
+                      precision="28" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COMPANY_NAME]"
+                      dataType="wstr"
+                      length="50"
+                      name="CC_COMPANY_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STREET_NUMBER]"
+                      dataType="wstr"
+                      length="10"
+                      name="CC_STREET_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STREET_NAME]"
+                      dataType="wstr"
+                      length="60"
+                      name="CC_STREET_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STREET_TYPE]"
+                      dataType="wstr"
+                      length="15"
+                      name="CC_STREET_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_SUITE_NUMBER]"
+                      dataType="wstr"
+                      length="10"
+                      name="CC_SUITE_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_CITY]"
+                      dataType="wstr"
+                      length="60"
+                      name="CC_CITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COUNTY]"
+                      dataType="wstr"
+                      length="30"
+                      name="CC_COUNTY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_STATE]"
+                      dataType="wstr"
+                      length="2"
+                      name="CC_STATE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_ZIP]"
+                      dataType="wstr"
+                      length="10"
+                      name="CC_ZIP" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_COUNTRY]"
+                      dataType="wstr"
+                      length="20"
+                      name="CC_COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_GMT_OFFSET]"
+                      dataType="numeric"
+                      name="CC_GMT_OFFSET"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CC_TAX_PERCENTAGE]"
+                      dataType="numeric"
+                      name="CC_TAX_PERCENTAGE"
+                      precision="5"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[ODBC Source Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="ODBC Source Output"
+              startId="Package\Data Flow Task\ODBC Source.Outputs[ODBC Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="277.499988973141,152.533334545559" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\Data Flow Task\ODBC Source"
+          TopLeft="308.333321081268,56.3333337810305" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="291.666655076875,168.133334669537" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ODBC Source Output]"
+          TopLeft="378.799988079072,97.9333337810305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.2000008885065"
+              Start="0,0"
+              End="0,62.7000008885065">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.7000008885065" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\ODBC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
