@@ -1,0 +1,2644 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/19/2023 6:42:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HOME-PC"
+  DTS:CreatorName="HOME-PC\admin"
+  DTS:DTSID="{957AA523-F3E3-4702-B74A-37C0C328BE66}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{8356671D-08D7-435E-BC06-3BF77C6AC3EB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6738C818-6D38-411A-AE53-CDC03F3C5AAF}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\admin\Downloads\qf-506\Weblog for 23-04-2013.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="#Web log for Wise Owl site for first 5 hours of 23rd April 2013"
+              DTS:DTSID="{4A635C54-E51B-4AB1-81C6-9DFCE441218C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C3C29F86-AFF2-432A-8E91-A110DC0EC815}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\admin\Downloads\qf-506\Create web logs table.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="USE X_Factor"
+              DTS:DTSID="{397EB5B5-9CE6-4FAA-95F4-D5A2FDB445EC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{94C2848D-5256-4470-A0BC-AD5D9C7543A4}"
+      DTS:ObjectName="Flat File Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\admin\Downloads\qf-506\Create web logs table.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="USE X_Factor"
+              DTS:DTSID="{21E845EF-51A8-450B-B83D-F21845939495}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HOME-PC.OLAP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B9DE9092-F9DB-4D1E-955C-23465E7E6044}"
+      DTS:ObjectName="HOME-PC.OLAP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=HOME-PC;Initial Catalog=OLAP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B9DE9092-F9DB-4D1E-955C-23465E7E6044}HOME-PC.OLAP;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA89088C-B4FF-425A-81AA-4D371986BC00}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NumNot">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D7944A2C-8114-4412-A9A8-689901F45432}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NumOK">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete all existing data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{15a0e082-2563-4480-9864-6b457f400b17}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete all existing data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B9DE9092-F9DB-4D1E-955C-23465E7E6044}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE tblIpAddress;&#xA;TRUNCATE TABLE tblUrl;&#xA;TRUNCATE TABLE tblWebLog;&#xA;TRUNCATE TABLE tblIpAddress;&#xA;TRUNCATE TABLE tblWeblogStaging;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Import web log visits from text file into staging table, creating new IP address rows"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{58be80ef-6202-4ca2-9354-261448ae34e0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import web log visits from text file into staging table, creating new IP address rows">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Add IP addresses not found to table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tblIpAddress]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Connections[OleDbConnection]"
+                  connectionManagerID="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  connectionManagerRefId="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Inputs[OLE DB Destination Input].Columns[IpAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IpAddress"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Inputs[OLE DB Destination Input].ExternalColumns[IpAddress]"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[IpAddress]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Inputs[OLE DB Destination Input].ExternalColumns[IpAddressId]"
+                      dataType="i4"
+                      name="IpAddressId" />
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Inputs[OLE DB Destination Input].ExternalColumns[IpAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="IpAddress" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Get when visit occurred - date and time"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Inputs[Derived Column Input].Columns[LogDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogDate"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\147:invalid" />
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Inputs[Derived Column Input].Columns[LogTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogTime"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\150:invalid" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output].Columns[WhenDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output].Columns[WhenDate]"
+                      name="WhenDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(#{Package\Import web log visits from text file into staging table, creating new IP address rows\147:invalid} + " " + #{Package\Import web log visits from text file into staging table, creating new IP address rows\150:invalid})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(LogDate + " " + LogTime)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup IP address"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[tblIpAddress]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[tblIpAddress]) [refTable]
+where [refTable].[IpAddress] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IpAddressId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IpAddress" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Import web log visits from text file into staging table, creating new IP address rows\156:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Connections[OleDbConnection]"
+                  connectionManagerID="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  connectionManagerRefId="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Inputs[Lookup Input].Columns[IpAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IpAddress"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\156:invalid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">IpAddress</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Match Output].Columns[IpAddressId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Match Output].Columns[IpAddressId]"
+                      name="IpAddressId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">IpAddressId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Only include HTML files"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Inputs[Conditional Split Input].Columns[Url]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Url"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\153:invalid" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[HTML files]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="HTML files"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[RIGHT](#{Package\Import web log visits from text file into staging table, creating new IP address rows\153:invalid},1) == "/" || [RIGHT]([UPPER](#{Package\Import web log visits from text file into staging table, creating new IP address rows\153:invalid}),4) == ".HTM"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">RIGHT(Url,1) == "/" || RIGHT(UPPER(Url),4) == ".HTM"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[Ignore non-HTML files]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Ignore non-HTML files"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Remove duplicates"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input].Columns[LogDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogDate"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\147:invalid">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input].Columns[LogTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogTime"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\150:invalid">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input].Columns[Url]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Url"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\153:invalid">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input].Columns[IpAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IpAddress"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\156:invalid">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input].Columns[Browser]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Browser"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\159:invalid">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input].Columns[Referrer]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Referrer"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\162:invalid">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input].Columns[WhenDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="WhenDate"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output].Columns[WhenDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[LogDate]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[LogDate]"
+                      name="LogDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import web log visits from text file into staging table, creating new IP address rows\147:invalid}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[LogTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[LogTime]"
+                      name="LogTime">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import web log visits from text file into staging table, creating new IP address rows\150:invalid}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[Url]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[Url]"
+                      name="Url">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import web log visits from text file into staging table, creating new IP address rows\153:invalid}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[IpAddress]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[IpAddress]"
+                      name="IpAddress"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import web log visits from text file into staging table, creating new IP address rows\156:invalid}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[Browser]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[Browser]"
+                      name="Browser">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import web log visits from text file into staging table, creating new IP address rows\159:invalid}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[Referrer]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[Referrer]"
+                      name="Referrer">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import web log visits from text file into staging table, creating new IP address rows\162:invalid}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[WhenDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output].Columns[WhenDate]"
+                      name="WhenDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output].Columns[WhenDate]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Split this into two identical data flows">
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Outputs[Multicast Output 3]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Staging table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tblWebLogStaging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Connections[OleDbConnection]"
+                  connectionManagerID="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  connectionManagerRefId="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].Columns[Url]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Url"
+                      externalMetadataColumnId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Url]"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Url]" />
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].Columns[IpAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IpAddress"
+                      externalMetadataColumnId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[IpAddress]"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[IpAddress]" />
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].Columns[Browser]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Browser"
+                      externalMetadataColumnId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Browser]"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Browser]" />
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].Columns[Referrer]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Referrer"
+                      externalMetadataColumnId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Referrer]"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Referrer]" />
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].Columns[WhenDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="WhenDate"
+                      externalMetadataColumnId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[LogWhen]"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[WhenDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[LogWhen]"
+                      dataType="dbTimeStamp"
+                      name="LogWhen" />
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Url]"
+                      dataType="wstr"
+                      length="255"
+                      name="Url" />
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[IpAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="IpAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Browser]"
+                      dataType="wstr"
+                      length="255"
+                      name="Browser" />
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input].ExternalColumns[Referrer]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Referrer" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="2057"
+              name="Start with web log text file"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Output].Columns[USE X_Factor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Output].ExternalColumns[USE X_Factor]"
+                      length="50"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Output].Columns[USE X_Factor]"
+                      name="USE X_Factor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Output].ExternalColumns[USE X_Factor]"
+                      dataType="wstr"
+                      length="50"
+                      name="USE X_Factor" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1].Columns[LogDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogDate"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\147:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1].Columns[LogTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogTime"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\150:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1].Columns[Url]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Url"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\153:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Url]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1].Columns[IpAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IpAddress"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\156:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[IpAddress]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1].Columns[Browser]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Browser"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\159:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Browser]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1].Columns[Referrer]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Referrer"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\162:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Referrer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1].Columns[WhenDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="WhenDate"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output].Columns[WhenDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[WhenDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2].Columns[LogDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogDate"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\147:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2].Columns[LogTime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LogTime"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\150:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2].Columns[Url]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Url"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\153:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Url]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2].Columns[IpAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IpAddress"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\156:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[IpAddress]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2].Columns[Browser]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Browser"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\159:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Browser]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2].Columns[Referrer]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Referrer"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\162:invalid">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Referrer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2].Columns[WhenDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="WhenDate"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output].Columns[WhenDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[WhenDate]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogDate]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogDate]"
+                      name="LogDate" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogTime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[LogTime]"
+                      name="LogTime" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Url]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Url]"
+                      name="Url" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[IpAddress]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[IpAddress]"
+                      name="IpAddress" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Browser]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Browser]"
+                      name="Browser" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Referrer]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[Referrer]"
+                      name="Referrer" />
+                    <outputColumn
+                      refId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[WhenDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1].Columns[WhenDate]"
+                      name="WhenDate" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Derived Column Output]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Flat File Source Output]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[HTML files]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Inputs[Lookup Input]"
+              name="HTML files"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files.Outputs[HTML files]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Lookup Match Output]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 2]"
+              name="Lookup Match Output"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Lookup No Match Output]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Inputs[Multicast Input 1]"
+              name="Lookup No Match Output"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Multicast Output 1]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Inputs[Sort Input]"
+              name="Multicast Output 1"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Multicast Output 3]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Inputs[Union All Input 1]"
+              name="Multicast Output 3"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows.Outputs[Multicast Output 3]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Sort Output]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates.Outputs[Sort Output]" />
+            <path
+              refId="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Union All Output 1]"
+              endId="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert one existing IP address to test both paths work"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8df8fed0-eb6e-47b3-90d6-652973f9910a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert one existing IP address to test both paths work"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}"
+          SQLTask:SqlStatementSource="&#xA;INSERT INTO tblIpAddress(&#xA; IpAddress&#xA;) VALUES (&#xA; '128.84.126.54'&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Move data from staging table to final table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{24fc2ff6-b871-46c8-b8f6-9adc8194a3bd}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Move data from staging table to final table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Move data from staging table to final table\Final table of website visits"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Final table of website visits"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tblWebLog]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Move data from staging table to final table\Final table of website visits.Connections[OleDbConnection]"
+                  connectionManagerID="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  connectionManagerRefId="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].Columns[LogWhen]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LogWhen"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[LogWhen]"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[LogWhen]" />
+                    <inputColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].Columns[Url]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Url"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[Url]"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Url]" />
+                    <inputColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].Columns[Browser]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Browser"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[Browser]"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Browser]" />
+                    <inputColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].Columns[Referrer]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="Referrer"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[Referrer]"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Referrer]" />
+                    <inputColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].Columns[IpAddressId]"
+                      cachedDataType="i4"
+                      cachedName="IpAddressId"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[IpAddressId]"
+                      lineageId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Match Output].Columns[IpAddressId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[LogId]"
+                      dataType="i4"
+                      name="LogId" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[LogWhen]"
+                      dataType="dbTimeStamp"
+                      name="LogWhen" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[Url]"
+                      dataType="wstr"
+                      length="255"
+                      name="Url" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[IpAddressId]"
+                      dataType="i4"
+                      name="IpAddressId" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[Browser]"
+                      dataType="wstr"
+                      length="255"
+                      name="Browser" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input].ExternalColumns[Referrer]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Referrer" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Move data from staging table to final table\Final table of website visits.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move data from staging table to final table\Final table of website visits.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Final table of website visits.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move data from staging table to final table\Final table of website visits.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup IP address in table which has been created"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[tblIpAddress]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[tblIpAddress]) [refTable]
+where [refTable].[IpAddress] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IpAddressId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IpAddress" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[IpAddress]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Connections[OleDbConnection]"
+                  connectionManagerID="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  connectionManagerRefId="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Inputs[Lookup Input].Columns[IpAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IpAddress"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[IpAddress]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">IpAddress</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Match Output].Columns[IpAddressId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Match Output].Columns[IpAddressId]"
+                      name="IpAddressId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">IpAddressId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Move data from staging table to final table\Staging area"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Staging area"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tblWebLogStaging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Move data from staging table to final table\Staging area.Connections[OleDbConnection]"
+                  connectionManagerID="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  connectionManagerRefId="{EE8A5771-3046-4890-8B8B-33E4BDEF43C9}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[LogWhen]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[LogWhen]"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[LogWhen]"
+                      name="LogWhen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Url]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[Url]"
+                      length="255"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Url]"
+                      name="Url"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[IpAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[IpAddress]"
+                      length="255"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[IpAddress]"
+                      name="IpAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Browser]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[Browser]"
+                      length="255"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Browser]"
+                      name="Browser"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Referrer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[Referrer]"
+                      length="2000"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].Columns[Referrer]"
+                      name="Referrer"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[LogWhen]"
+                      dataType="dbTimeStamp"
+                      name="LogWhen" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[Url]"
+                      dataType="wstr"
+                      length="255"
+                      name="Url" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[IpAddress]"
+                      dataType="wstr"
+                      length="255"
+                      name="IpAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[Browser]"
+                      dataType="wstr"
+                      length="255"
+                      name="Browser" />
+                    <externalMetadataColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output].ExternalColumns[Referrer]"
+                      dataType="wstr"
+                      length="2000"
+                      name="Referrer" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[LogWhen]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[LogWhen]"
+                      name="LogWhen" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[Url]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[Url]"
+                      name="Url" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[IpAddress]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[IpAddress]"
+                      name="IpAddress" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[Browser]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[Browser]"
+                      name="Browser" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[Referrer]"
+                      dataType="wstr"
+                      length="2000"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[Referrer]"
+                      name="Referrer" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Move data from staging table to final table.Paths[Lookup Match Output]"
+              endId="Package\Move data from staging table to final table\Final table of website visits.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Move data from staging table to final table.Paths[OLE DB Source Output]"
+              endId="Package\Move data from staging table to final table\Lookup IP address in table which has been created.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Move data from staging table to final table\Staging area.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{a1322c3c-46f4-49ab-b533-c05478a71521}"
+      DTS:From="Package\Insert one existing IP address to test both paths work"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import web log visits from text file into staging table, creating new IP address rows" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{430a4e93-5f7d-4062-b648-3a44399c62c7}"
+      DTS:From="Package\Import web log visits from text file into staging table, creating new IP address rows"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Move data from staging table to final table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8828e222-d64b-4c30-b837-a76773d1079e}"
+      DTS:From="Package\Delete all existing data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Insert one existing IP address to test both paths work" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\Delete all existing data"
+          TopLeft="210.999993443489,93.9333332851198" />
+        <NodeLayout
+          Size="243.2,64.8"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows"
+          TopLeft="202.499993443489,239.43333328512" />
+        <NodeLayout
+          Size="334.4,41.6"
+          Id="Package\Insert one existing IP address to test both paths work"
+          TopLeft="164.999993443489,161.93333328512" />
+        <NodeLayout
+          Size="227.2,51.2"
+          Id="Package\Move data from staging table to final table"
+          TopLeft="192.999993443489,341.93333328512" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="331.999993443489,203.93333328512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,35.5"
+              Start="0,0"
+              End="-8,28">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.75"
+                    Point2="0,17.75"
+                    Point3="-4,17.75" />
+                  <mssgle:LineSegment
+                    End="-4,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,17.75"
+                    Point2="-8,17.75"
+                    Point3="-8,21.75" />
+                  <mssgle:LineSegment
+                    End="-8,28" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="323.999993443489,304.43333328512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,37.5"
+              Start="0,0"
+              End="-17.5,30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.75"
+                    Point2="0,18.75"
+                    Point3="-4,18.75" />
+                  <mssgle:LineSegment
+                    End="-13.5,18.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,18.75"
+                    Point2="-17.5,18.75"
+                    Point3="-17.5,22.75" />
+                  <mssgle:LineSegment
+                    End="-17.5,30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="304.499993443489,135.93333328512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.5,26"
+              Start="0,0"
+              End="27.5,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9"
+                    Point2="0,13"
+                    Point3="4,13" />
+                  <mssgle:LineSegment
+                    End="23.5,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,13"
+                    Point2="27.5,13"
+                    Point3="27.5,17" />
+                  <mssgle:LineSegment
+                    End="27.5,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import web log visits from text file into staging table, creating new IP address rows">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Lookup IP address"
+          TopLeft="118,199" />
+        <NodeLayout
+          Size="166.4,68"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Add IP addresses not found to table"
+          TopLeft="473,341" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Staging table"
+          TopLeft="119,470" />
+        <NodeLayout
+          Size="176,86.4"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Split this into two identical data flows"
+          TopLeft="220,254" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Only include HTML files"
+          TopLeft="280,109" />
+        <NodeLayout
+          Size="152,70.4"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Start with web log text file"
+          TopLeft="118,11" />
+        <NodeLayout
+          Size="267.2,41.6"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Get when visit occurred - date and time"
+          TopLeft="315,19" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Remove duplicates"
+          TopLeft="441,226" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows\Union All"
+          TopLeft="110,385" />
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Union All Output 1]"
+          TopLeft="171,427">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,43"
+              Start="0,0"
+              End="19,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="15,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,21.5"
+                    Point2="19,21.5"
+                    Point3="19,25.5" />
+                  <mssgle:LineSegment
+                    End="19,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Sort Output]"
+          TopLeft="525,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31,73"
+              Start="0,0"
+              End="31,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="27,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27,36.5"
+                    Point2="31,36.5"
+                    Point3="31,40.5" />
+                  <mssgle:LineSegment
+                    End="31,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Multicast Output 3]"
+          TopLeft="308,340">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-118,45"
+              Start="0,0"
+              End="-118,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6504854368932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.6504854368932"
+                    Point2="0,26.6504854368932"
+                    Point3="-4,26.6504854368932" />
+                  <mssgle:LineSegment
+                    End="-114,26.6504854368932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-114,26.6504854368932"
+                    Point2="-118,26.6504854368932"
+                    Point3="-118,30.6504854368932" />
+                  <mssgle:LineSegment
+                    End="-118,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-67,31.6504854368932,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Multicast Output 1]"
+          TopLeft="396,297">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45,-50"
+              Start="0,0"
+              End="37.5,-50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,0"
+                    Point2="22.5,0"
+                    Point3="22.5,-4" />
+                  <mssgle:LineSegment
+                    End="22.5,-46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.5,-46"
+                    Point2="22.5,-50"
+                    Point3="26.5,-50" />
+                  <mssgle:LineSegment
+                    End="37.5,-50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.5,1,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Lookup No Match Output]"
+          TopLeft="285,220">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,34"
+              Start="0,0"
+              End="23,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,0"
+                    Point2="23,0"
+                    Point3="23,4" />
+                  <mssgle:LineSegment
+                    End="23,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-31.80638671875,-15.609375,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Lookup Match Output]"
+          TopLeft="201.5,241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.5,144"
+              Start="0,0"
+              End="-49.5,136.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.2815533980583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,81.2815533980583"
+                    Point2="0,85.2815533980583"
+                    Point3="-4,85.2815533980583" />
+                  <mssgle:LineSegment
+                    End="-45.5,85.2815533980583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.5,85.2815533980583"
+                    Point2="-49.5,85.2815533980583"
+                    Point3="-49.5,89.2815533980583" />
+                  <mssgle:LineSegment
+                    End="-49.5,136.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-81.8100390625,90.2815533980583,114.120078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[HTML files]"
+          TopLeft="375,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-173.5,48"
+              Start="0,0"
+              End="-173.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-169.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-169.5,24"
+                    Point2="-173.5,24"
+                    Point3="-173.5,28" />
+                  <mssgle:LineSegment
+                    End="-173.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-119.10123046875,29,64.7024609375,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Flat File Source Output]"
+          TopLeft="270,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45,0"
+              Start="0,0"
+              End="37.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="10.75,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import web log visits from text file into staging table, creating new IP address rows.Paths[Derived Column Output]"
+          TopLeft="448.5,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73.5,48"
+              Start="0,0"
+              End="-73.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-69.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-69.5,24"
+                    Point2="-73.5,24"
+                    Point3="-73.5,28" />
+                  <mssgle:LineSegment
+                    End="-73.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-44.75,29,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Move data from staging table to final table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Move data from staging table to final table\Staging area"
+          TopLeft="174,94" />
+        <NodeLayout
+          Size="194,65"
+          Id="Package\Move data from staging table to final table\Lookup IP address in table which has been created"
+          TopLeft="156,167" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Move data from staging table to final table\Final table of website visits"
+          TopLeft="146,295" />
+        <EdgeLayout
+          Id="Package\Move data from staging table to final table.Paths[OLE DB Source Output]"
+          TopLeft="243.5,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,31"
+              Start="0,0"
+              End="9.5,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="5.5,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,15.5"
+                    Point2="9.5,15.5"
+                    Point3="9.5,19.5" />
+                  <mssgle:LineSegment
+                    End="9.5,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Move data from staging table to final table.Paths[Lookup Match Output]"
+          TopLeft="251.25,232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-47.19138671875,22.9453125,94.3827734375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
